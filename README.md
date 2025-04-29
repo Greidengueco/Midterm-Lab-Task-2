@@ -64,3 +64,6 @@ This portfolio shows how to clean and prepare data using Power Query. The datase
 ![Image](https://github.com/user-attachments/assets/e4a0521e-0633-4f05-aa18-d29f755561b6)
 ## Query Dependencies
 ![Image](https://github.com/user-attachments/assets/1d639aca-e72d-46cd-944b-ceb6abc49cfd)
+
+
+## [BACK TO PORTFOLIO](https://greidengueco.github.io/EDM-Portfolio/)
