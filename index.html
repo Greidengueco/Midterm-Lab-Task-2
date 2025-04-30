@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Midterm Lab Task 2 - Solo Leveling Floating System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html, body {
+      height: 100%;
+      font-family: 'Share Tech Mono', monospace;
+      background: black;
+      color: #00f0ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body {
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    .content {
+      width: 100%;
+      max-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00f0ff;
+      padding: 40px;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 50px rgba(0, 240, 255, 0.5);
+      position: relative;
+      z-index: 2;
+      animation: floating 5s ease-in-out infinite;
+      transition: transform 0.3s ease;
+      overflow-y: scroll;
+      max-height: 85vh;
+    }
+
+    .container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .container {
+      scrollbar-width: none;
+    }
+
+    @keyframes floating {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      color: #00f0ff;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #00f0ff;
+      padding-bottom: 10px;
+    }
+
+    h2, h3 {
+      margin-top: 20px;
+      color: #ff3c57;
+      font-size: 1.5em;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 0 15px #00f0ff;
+    }
+
+    p {
+      color: #ff3c57;
+      font-size: 1.2em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <div class="container">
+      <h1>MIDTERM LAB TASK 2</h1>
+
+      <p>
+        This project demonstrates how I used Power Query in Excel to clean and transform data.
+        Power Query helped automate the process, reduce errors, and organize the dataset effectively.
+      </p>
+
+      <h2>Step-by-Step Process</h2>
+
+      <h3>Step 1: Loading Data into Power Query</h3>
+      <ul>
+        <li>Imported the raw transactional file into Power Query.</li>
+        <li>Previewed and inspected the structure.</li>
+      </ul>
+
+      <h3>Step 2: Cleaning the Data</h3>
+      <ul>
+        <li>Removed unnecessary columns and duplicate rows.</li>
+        <li>Filtered null or empty values.</li>
+        <li>Renamed column headers for clarity.</li>
+      </ul>
+
+      <h3>Step 3: Transforming Data</h3>
+      <ul>
+        <li>Split columns using delimiters.</li>
+        <li>Changed data types to appropriate formats.</li>
+        <li>Grouped and summarized values as needed.</li>
+      </ul>
+
+      <h3>Before Data Cleaning</h3>
+      <img src="https://github.com/user-attachments/assets/3cc0e49b-36a2-4963-9a2e-98c76089315f" alt="Before Data Cleaning" />
+
+      <h3>After Data Cleaning</h3>
+      <img src="https://github.com/user-attachments/assets/c54f96b0-2e94-4f26-885e-dae33a43fd23" alt="After Data Cleaning" />
+      
+    </div>
+  </div>
+
+</body>
+</html>
