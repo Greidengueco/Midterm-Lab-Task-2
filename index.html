@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Midterm Lab Task 2 - Power Query Data Cleaning</title>
+  <title>Midterm Lab Task 2 – Data Cleaning with Power Query</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     * {
@@ -147,42 +147,106 @@
 
   <div class="content">
     <div class="container">
-      <h1>MIDTERM LAB TASK 2</h1>
+      <h1>Midterm Lab Task 2 – Data Cleaning with Power Query</h1>
 
       <p style="color: #ff3c57; font-size: 1.2em; text-align: center;">
         This portfolio shows how to clean and prepare data using Power Query. The dataset has multiple tables that need cleaning to improve quality and consistency before analysis.
       </p>
 
-      <h2>Step-by-Step Process</h2>
+      <h2>Steps:</h2>
 
-      <h3>Step 1: Loading Data into Power Query</h3>
+      <h3>1. Load Data</h3>
       <ul>
-        <li>Imported the raw transactional file into Power Query.</li>
-        <li>Previewed and inspected the structure.</li>
+        <li>Download <em>Uncleaned_DS_jobs.csv</em></li>
+        <li>Open in Excel → Data → New Query → Open File → Text/CSV → Load & Edit in Power Query</li>
       </ul>
 
-      <h3>Step 2: Cleaning the Data</h3>
+      <h3>2. Duplicate Raw Data</h3>
       <ul>
-        <li>Removed unnecessary columns and duplicate rows.</li>
-        <li>Filtered null or empty values.</li>
-        <li>Renamed column headers for clarity.</li>
+        <li>Right-click dataset → Select Duplicate</li>
       </ul>
 
-      <h3>Step 3: Transforming Data</h3>
+      <h3>3. Clean Salary Data</h3>
       <ul>
-        <li>Split columns using delimiters.</li>
-        <li>Changed data types to appropriate formats.</li>
-        <li>Grouped and summarized values as needed.</li>
+        <li>Select <em>Salary Estimate</em> → Extract text before "("</li>
+        <li>Create <em>Min Salary</em> and <em>Max Salary</em> columns using <em>Column from Examples</em></li>
       </ul>
 
-      <h3>Before Data Cleaning</h3>
-      <img src="https://github.com/user-attachments/assets/3cc0e49b-36a2-4963-9a2e-98c76089315f" alt="Before Data Cleaning" />
+      <h3>4. Add Role Type</h3>
+      <ul>
+        <li>Create a <em>Custom Column</em> → Assign roles based on job titles (e.g., Data Scientist, Data Analyst, etc.)</li>
+      </ul>
 
-      <h3>After Data Cleaning</h3>
-      <img src="https://github.com/user-attachments/assets/c54f96b0-2e94-4f26-885e-dae33a43fd23" alt="After Data Cleaning" />
+      <h3>5. Split Location Column</h3>
+      <ul>
+        <li>Add <em>State Abbreviation</em> column with corrections (e.g., New Jersey → NJ)</li>
+        <li>Split <em>Location</em> by comma → Rename second column as <em>State Abbreviations</em></li>
+      </ul>
 
-      <h3>Physical Data Model</h3>
-      <img src="https://github.com/user-attachments/assets/70b1ba2e-8dbc-4e3e-b655-dd9f3a6beaf2" alt="Physical Data Model" />
+      <h3>6. Split Company Size</h3>
+      <ul>
+        <li>Create <em>MinCompanySize</em> and <em>MaxCompanySize</em> using Salary Estimate method</li>
+      </ul>
+
+      <h3>7. Handle Negative Values</h3>
+      <ul>
+        <li>Remove <em>-1s</em> and <em>0s</em> from <em>Competitors, Revenues, and Industry</em></li>
+      </ul>
+
+      <h3>8. Clean Company Names</h3>
+      <ul>
+        <li>Remove extra characters or ratings after company names</li>
+      </ul>
+
+      <h3>9. Save Cleaning Steps</h3>
+      <ul>
+        <li>Copy Power Query code from <em>Advanced Editor</em> and save</li>
+      </ul>
+
+      <h3>10. Reshape & Group Data</h3>
+      <ul>
+        <li>Group by <em>Role Type</em> → Get avg. Min/Max Salary (convert to currency, multiply by 1000)</li>
+        <li>Group by <em>Company Size</em> → Get avg. Min/Max Salary</li>
+      </ul>
+
+      <h3>11. Merge State Mapping</h3>
+      <ul>
+        <li>Merge <em>State Abbreviation</em> with <em>State Mapping</em> query</li>
+        <li>Rename merged column as <em>State Full Name</em> → Remove nulls</li>
+      </ul>
+
+      <h3>12. Group by State</h3>
+      <ul>
+        <li>Group by <em>State Full Name</em> → Get avg. Min/Max Salary</li>
+      </ul>
+
+      <h3>13. Check Query Links</h3>
+      <ul>
+        <li>Go to <em>View → Dependencies</em> → Ensure correct links</li>
+      </ul>
+
+      <h2>Screenshots</h2>
+
+      <h3>Cleaned Table</h3>
+      <img src="https://github.com/user-attachments/assets/592dfe22-bd3b-4126-8691-980c9cc1136c" alt="Cleaned Table" />
+
+      <h3>Advanced Editor</h3>
+      <img src="https://github.com/user-attachments/assets/6e4720ad-a233-4bdb-8d33-1ee3827f8d00" alt="Advanced Editor" />
+
+      <h3>States</h3>
+      <img src="https://github.com/user-attachments/assets/681e007c-1628-4394-969c-c14d7510dd87" alt="States" />
+
+      <h3>Sal by Role Type</h3>
+      <img src="https://github.com/user-attachments/assets/a02e3c12-889c-4f93-9dd6-b10ec8276ddb" alt="Sal by Role Type" />
+
+      <h3>Sal by Role Size</h3>
+      <img src="https://github.com/user-attachments/assets/5ea71110-b656-48eb-ac68-98f2a55e7b72" alt="Sal by Role Size" />
+
+      <h3>Sal by State</h3>
+      <img src="https://github.com/user-attachments/assets/e4a0521e-0633-4f05-aa18-d29f755561b6" alt="Sal by State" />
+
+      <h3>Query Dependencies</h3>
+      <img src="https://github.com/user-attachments/assets/1d639aca-e72d-46cd-944b-ceb6abc49cfd" alt="Query Dependencies" />
 
       <div class="button-row">
         <a href="https://greidengueco.github.io/EDM-Portfolio/" class="system-btn">BACK TO PORTFOLIO</a>
