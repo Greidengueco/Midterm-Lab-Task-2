@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Midterm Lab Task 2 - Solo Leveling Floating System</title>
+  <title>Midterm Lab Task 2 - Power Query Data Cleaning</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     * {
@@ -48,22 +48,30 @@
       z-index: 2;
       animation: floating 5s ease-in-out infinite;
       transition: transform 0.3s ease;
-      overflow-y: scroll;
-      max-height: 85vh;
+      overflow: hidden;  /* Hide scrollbars */
+      overflow-y: scroll;  /* Allow vertical scroll */
+      max-height: 85vh;  /* Max height for scrolling */
     }
 
+    /* Hide the scrollbar */
     .container::-webkit-scrollbar {
-      display: none;
+      display: none; /* Hides the scrollbar in webkit browsers (Chrome, Safari) */
     }
 
     .container {
-      scrollbar-width: none;
+      scrollbar-width: none; /* Hides the scrollbar in Firefox */
     }
 
     @keyframes floating {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
 
     h1 {
@@ -93,30 +101,35 @@
       box-shadow: 0 0 15px #00f0ff;
     }
 
-    p {
-      color: #ff3c57;
-      font-size: 1.2em;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .back-btn {
-      display: inline-block;
-      background: #00f0ff;
-      color: black;
-      padding: 12px 30px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1.1rem;
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
       margin-top: 30px;
-      text-align: center;
-      transition: 0.3s ease;
-      cursor: pointer;
+      flex-wrap: wrap;
     }
 
-    .back-btn:hover {
-      background: #ff3c57;
-      color: white;
+    .system-btn {
+      padding: 12px 30px;
+      background: transparent;
+      border: 2px solid #00f0ff;
+      color: #00f0ff;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s ease;
+      transform: scale(1);
+    }
+
+    .system-btn:hover {
+      background-color: #00f0ff;
+      color: black;
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    .system-btn:active {
+      transform: scale(1.05); /* Slight shrink when clicked */
     }
 
     @media (max-width: 600px) {
@@ -136,7 +149,7 @@
     <div class="container">
       <h1>MIDTERM LAB TASK 2</h1>
 
-      <p>
+      <p style="color: #ff3c57; font-size: 1.2em; text-align: center;">
         This portfolio shows how to clean and prepare data using Power Query. The dataset has multiple tables that need cleaning to improve quality and consistency before analysis.
       </p>
 
@@ -168,8 +181,13 @@
       <h3>After Data Cleaning</h3>
       <img src="https://github.com/user-attachments/assets/c54f96b0-2e94-4f26-885e-dae33a43fd23" alt="After Data Cleaning" />
 
-      <!-- Back Button -->
-      <a href="https://greidengueco.github.io/EDM-Portfolio/" class="back-btn">Back to Portfolio</a>
+      <h3>Physical Data Model</h3>
+      <img src="https://github.com/user-attachments/assets/70b1ba2e-8dbc-4e3e-b655-dd9f3a6beaf2" alt="Physical Data Model" />
+
+      <div class="button-row">
+        <a href="https://greidengueco.github.io/EDM-Portfolio/" class="system-btn">BACK TO PORTFOLIO</a>
+        <a href="https://github.com/Greidengueco/Midterm-Lab-Task-2" class="system-btn" target="_blank">VIEW ON GITHUB</a>
+      </div>
     </div>
   </div>
 
